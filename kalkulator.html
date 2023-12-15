@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Kalkulator</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@700&display=swap');
+
+        *{
+            font-family: "Roboto", sans-serif;
+            text-decoration: none;
+        }
+        body{
+            height: 100vh;
+    margin: 4rem;
+    /* background-color: #f0f0f0; */
+   background-image:url(https://i.pinimg.com/originals/21/5c/7f/215c7fdca6033092baa04b35c17466bd.gif);
+   background-size: cover;
+        }
+.bude {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgrcqHnOfiN_1TcOHzn2mpkduW7LxjjiagFA&usqp=CAU); */
+    /* background-image: url(https://i.pinimg.com/originals/a9/6e/f0/a96ef0696b4f958a717b051258721711.gif); */
+}
+
+.calculator {
+    
+    /* background-color: #ff0000; */
+    border-radius: 10px;
+    width: 300px;
+    height: 500px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 90);
+}
+
+.display {
+    text-align: right;
+    padding: 10px;
+    width: auto;
+    height: 200px;
+    border-bottom: 1px solid #33ff00;
+    
+}
+
+.display input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 26px;
+    
+    color: #33ff00;
+    text-align: end;
+    background-color: #555555;
+}
+
+.buttons {
+    /* margin-top: ; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 6px;
+    padding: 10px;
+    width: auto;
+}
+
+.bute{
+border-radius: 0 40px 40px ;
+font-weight: 600;
+font-size: 1.5rem;
+    width: 7rem;
+    height:3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #33ff00;
+}
+.bute>a{
+    color: #fff;
+}
+button {
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 5px;
+}
+.g{
+    color: #33ff00;
+}
+/* .ko{ */
+    /* margin-bottom: 900px; */
+    /* margin-top: ;
+    margin-left: 310px;
+    height: 50px;
+    background-color: aqua;
+} */
+.ko{
+  color: #33ff00;
+}
+button:hover {
+    background-color: #555 ;
+    
+}
+
+    </style>
+    <div class="bute"> <a href="app.html">back</a>
+    </div>
+   <div class="bude">
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="display" >
+        </div>
+        <div class="wraper">
+        <div class="buttons">
+            <button onclick="hapuslayar()" class="g">C</button>
+            <button onclick="tampilan('/')" class="g">/</button>
+            <button onclick="tampilan('*')" class="g">*</button>
+            <button onclick="backspace()">👈</button>
+            <button onclick="tampilan('1')">1</button>
+            <button onclick="tampilan('2')">2</button>
+            <button onclick="tampilan('3')">3</button>
+            <button onclick="  ('-')"class="g">-</button>
+            <button onclick="tampilan('4')">4</button>
+            <button onclick="tampilan('5')">5</button>
+            <button onclick="tampilan('6')">6</button>
+            <button onclick="tampilan('+')"class="g">+</button>
+            <button onclick="tampilan('7')">7</button>
+            <button onclick="tampilan('8')">8</button>
+            <button onclick="tampilan('9')">9</button>
+            <button onclick="calculate()" class="ko">=</button>
+            <button onclick="tampilan('.')">,</button>
+            <button onclick="tampilan('0')">0</button>
+            <button onclick="persen('%')">%</button>
+           
+        </div>
+    </div>
+    </div>
+   </div>
+ 
+    <script>
+        let displayValue = '';
+let display = '';
+
+
+function tampilan(value) {
+    display += value;
+    document.getElementById('display').value = display;
+}
+function persen(value) {
+    display =display/100;
+    document.getElementById('display').value = display;
+}
+
+function hapuslayar() {
+    display = '';
+    document.getElementById('display').value = '';
+  
+}
+function backspace() {
+    display = display.slice(0, -1); // Menghapus karakter terakhir
+    document.getElementById('display').value = display;
+   
+}
+
+function calculate() {
+    try {
+        display = eval(display);
+        document.getElementById('display').value = display;
+    } catch (error) {
+        display = '';
+        document.getElementById('display').value = 'masukan perhitungan yang tepat';
+    }
+}
+
+    </script>
+</body>
+</html>
